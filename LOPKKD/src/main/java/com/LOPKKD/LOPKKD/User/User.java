@@ -1,9 +1,12 @@
 package com.LOPKKD.LOPKKD.User;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -18,18 +21,24 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Table(name = "user_tb")
-public class User{
+public class User implements Serializable{
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue
-    UUID id;
+    private UUID id;
 
     @Column(unique = true, nullable = false)
-    String name;
+    private String name;
 
     @Column(unique = true, nullable = false)
-    String password;
+    private String password;
 
     @Column(unique = true, nullable = false)
-    String email;
+    private String email;
+
+    @Enumerated(EnumType.STRING)
+    @Column(unique = true, nullable = false)
+    private UserRoles role;
     
 }

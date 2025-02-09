@@ -37,6 +37,7 @@ public class UserService {
             .name(userReq.name())
             .email(userReq.email())
             .password(userReq.password())
+            .role(userReq.userRole())
             .build();
         return userRepository.save(user);
     }
@@ -48,6 +49,7 @@ public class UserService {
             .name(userReq.name())
             .email(userReq.email())
             .password(userReq.password())
+            .role(userReq.userRole())
             .build();
         return userRepository.save(user);
     }
